@@ -1,0 +1,33 @@
+<div class="loginpagebody d-flex justify-content-center ">
+    <div class="card container"  >
+        <div class="row no-gutters">
+        <div class="col-md-5 card-edge-to-edge mdl-img">
+            <img src="assets\Medals.jpeg" class="card-image mdl-img">
+        </div>
+        <div class="col-md-7 col-12 card-edge-to-edge" >
+            <div class="rightcard-image">
+              <img src="assets\Brand.png" width="150px">
+            </div>
+        <div class="card-body"> 
+        <form (ngSubmit)="onSubmit(loginForm)" #loginForm="ngForm"> 
+            <div class="form-group mb-4">
+                <label for="userName">Username</label>
+                <input type="text" id="userName" name="userName" class="form-control" name='userName' ngModel required
+                    #userName="ngModel"placeholder="Email Format">
+                <small class="alert-danger" *ngIf="userName.touched && !userName.valid">Please Enter Valid
+                    Username</small>
+            </div>
+            <div class="form-group mb-5">
+                <label for="password">Password</label>
+                <input type="password" id="password" class="form-control" name='password' ngModel required
+                    #password="ngModel">
+                <small class="alert-danger" *ngIf="password.touched && !password.valid">Please Enter Valid
+                    password</small>
+            </div>
+            <div class="form-group mb-5">
+                <button  class="btn btn-block login-btn " [disabled]="!loginForm.valid" type="submit">Login</button>
+            </div>
+        </form>
+        <p >Dont have an account?<span><a routerLink="/signUp" > Register</a></span></p>
+    </div>
+</div>

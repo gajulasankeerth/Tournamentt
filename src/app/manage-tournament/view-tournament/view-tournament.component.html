@@ -1,0 +1,31 @@
+<h3 class="heading">View Tournament</h3>
+<div class="container">
+    <div class="row  align-items-center">
+        <div class="col-4 colBorderheading">
+            Tournament Name
+        </div>
+        <div class="col-4 colBorderheading">
+            Start Date
+        </div>
+        <div class="col-4 colBorderheading">
+            End Date
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row  align-items-center">
+        <div class="col-4 colBorder">
+            {{data.name}}
+        </div>
+        <div class="col-4 colBorder">
+            {{data.sDate}}
+        </div>
+        <div class="col-4 colBorder">
+           {{data.eDate}}
+        </div>
+    </div>
+    <button class="btn btn-primary" type="submit" (click)="goback()">Back</button>
+</div>
+
+
+

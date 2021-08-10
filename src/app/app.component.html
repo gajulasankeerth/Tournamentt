@@ -1,0 +1,34 @@
+<div  class="flex-container " *ngIf="userName!=''"> 
+  <div style=" margin-left:25px ;" >
+  <img src="assets/logo1.png" class="logo" height="130px" width="130px">
+  </div>
+  <div class="contain-atag"><div *ngFor="let item of menuItems" class="containanc">
+    <a  [ngClass]="{red:item.colour=='red'&&item.activeStatus,blue:item.colour=='blue'&&item.activeStatus,green:item.colour=='green'&&item.activeStatus}" routerLink="{{item.naviagteTo}}" (click)="activestats(item.itemName)"  >{{item.itemName}}</a></div>
+  </div>
+  <div class="topright-menu" >
+    <strong>Welcome! {{userName}}</strong>
+    <a routerLink="/login" class="logout" (click)="onLogout()">LogOut</a>
+  </div>
+</div>
+<nav class="navbar navbar-light bg-skyblue" *ngIf="userName!=''">
+  <a class="navbar-brand" href="#">
+    <img src="assets/logo.png" width="120" height="65" class="d-inline-block align-top navbrand-img" alt="">
+  
+   </a>
+  <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent1"
+    aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+        </svg>
+      </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+    <ul class="navbar-nav mr-auto" >
+       <li *ngFor="let item of menuItems" class="containanc">
+         <a [ngClass]="{red:item.colour=='red'&&item.activeStatus,blue:item.colour=='blue'&&item.activeStatus,green:item.colour=='green'&&item.activeStatus}" routerLink="{{item.naviagteTo}}" (click)="activestats(item.itemName)">{{item.itemName}}</a>
+        </li>
+        <li> <a routerLink="/login" class="logout" (click)="onLogout()">LogOut</a>
+        </li>
+    </ul>
+  </div>
+</nav>
+<router-outlet></router-outlet>

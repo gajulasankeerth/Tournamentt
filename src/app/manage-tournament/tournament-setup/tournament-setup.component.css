@@ -1,0 +1,54 @@
+*{
+    box-sizing:border-box;
+}
+.colBorder
+{
+    background-color: #d9edf7;
+    height: 50px;
+    padding:10px;
+    text-align: center;
+    border: 2px solid white;
+}
+.colBorderheading
+{
+    background-color: #000000;
+    height: 50px;
+    padding:10px;
+    text-align: center;
+    border: 2px solid white;
+    color: white;
+}
+.container-addTournament
+{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 25%;
+}
+.rightcard-image
+{
+    display:flex; justify-content: center; 
+    width: 100%;
+    margin-top: 40px;
+}
+.btn{
+    font-size: 0.8em;
+}
+@media only screen and (max-width:767px) {
+    .colBorder
+{
+    background-color: #d9edf7;
+    height: 80px;
+    padding:5px;
+    font-size: small;
+    border: 2px solid white;
+}
+.colBorderheading
+{
+    background-color: #000000;
+    height: 80px;
+    padding:5px;
+    font-size: small;
+    border: 2px solid white;
+    color: white;
+}
+}

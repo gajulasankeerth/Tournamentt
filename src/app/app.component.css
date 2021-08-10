@@ -1,0 +1,74 @@
+.flex-container{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-image: url("src\assets\MicrosoftTeams-image (5).png");
+}
+.atag{
+    display:block
+}
+.contain-atag
+{
+    flex: 0 0 50%;
+    display: flex;
+    align-items:  flex-end;
+    justify-content: flex-end; 
+}
+.flex-container .containanc{
+     margin: 20px;
+}
+.logo{
+     flex: 0 0 15%;
+}
+.topright-menu{
+    flex: 0 0 20%;
+    display: flex;
+    flex-direction: column;
+    margin-right: 10px;
+}
+.topright-menu .logout { 
+    text-decoration: none;
+}
+.topright-menu .logout:hover{
+    color: red;
+    text-decoration: none;
+}
+.contain-atag  a{
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-size: larger;
+    padding-bottom: 10px;
+    margin-right: 20px; 
+}
+.bg-skyblue{
+ background-color: #bff4fc;
+}
+.navbar-nav a{
+    text-decoration: none;
+    margin-top: 30px;
+}
+.navbrand-img{
+    margin:0;
+}
+.red{
+    color: rgb(233, 38, 4);
+    border-bottom: 2px solid rgb(233, 38, 4);
+}
+.blue{
+    color: blue;
+    border-bottom: 2px solid blue;
+}
+.green{
+    color:green;
+    border-bottom: 2px solid green; 
+}
+@media only screen and (max-width:767px) {
+    .flex-container {
+      display: none;
+    }
+}
+@media only screen and (min-width:766px) {
+   .navbar{
+       display:none;
+   }
+}

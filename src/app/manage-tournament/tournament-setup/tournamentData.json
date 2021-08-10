@@ -1,0 +1,36 @@
+[{
+    "name":"Hockey",
+    "startDate":"1-08-2021",
+    "endDate":"3-08-2021"
+  },
+  {
+    "name":"Kho-Kho",
+    "startDate":"1-08-2021",
+    "endDate":"3-08-2021"
+  },
+  {
+    "name":"Running Race",
+    "startDate":"1-08-2021",
+    "endDate":"3-08-2021"
+  },
+  {
+    "name":"Baseball",
+    "startDate":"1-08-2021",
+    "endDate":"3-08-2021"
+  },
+  {
+    "name":"Badminton",
+    "startDate":"1-08-2021",
+    "endDate":"3-08-2021"
+  },
+  {
+    "name":"Volleyball",
+    "startDate":"1-08-2021",
+    "endDate":"3-08-2021"
+  },
+  {
+    "name":"Ice Hockey",
+    "startDate":"1-08-2021",
+    "endDate":"3-08-2021"
+  }
+]

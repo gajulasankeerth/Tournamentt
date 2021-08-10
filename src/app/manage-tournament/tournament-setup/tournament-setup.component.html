@@ -1,0 +1,63 @@
+<h3 class="heading">Tournament Setup</h3>
+<div class="container mt-5" style="max-width: 550px;">
+    <div class="form-group">
+        <input type="text" class="form-control mb-4" placeholder="Search" [(ngModel)]='filterData' id="listSearch">
+    </div>
+</div>
+    <div class="container-addTournament"><a class="nav-item nav-link" routerLink="/addTournament"><svg
+            xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle"
+            viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+            <path
+                d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+        </svg> &nbsp; Add Tournament</a></div>
+<div class="container">
+    <div class="row  align-items-center" style="height:60px;">
+        <div class="col-3 colBorderheading">
+            Tournament Name
+        </div>
+        <div class="col-3 colBorderheading">
+            Start Date
+        </div>
+        <div class="col-3 colBorderheading">
+            End Date
+        </div>
+        <div class="col-3 colBorderheading">
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row  align-items-center" style="height:60px;"
+        *ngFor="let data of tournamentDataOffline | searchFilter:filterData">
+        <div class="col-3 colBorder">
+            <a class="nav-item nav-link" routerLink="/viewTournament/{{data.name}}/{{data.startDate}}/{{data.endDate}}/">{{data.name}}</a>
+        </div>
+        <div class="col-3 colBorder">
+            {{data.startDate | date:'dd-MM-yyyy'}}
+        </div>
+        <div class="col-3 colBorder">
+            {{data.endDate | date:'dd-MM-yyyy'}}
+        </div>
+        <div class="col-3 colBorder">
+            <button type="button" class="btn btn-primary btn-sm" style="font-size: 0.8em;" (click)="onDeleteOfflinedata(data.name)" >Delete</button>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row  align-items-center" style="height:60px;"
+        *ngFor="let data of tournamentData | searchFilter:filterData">
+        <div class="col-3 colBorder">
+            <a class="nav-item nav-link" routerLink="/viewTournament/{{data.name}}/{{data.startDate}}/{{data.endDate}}/">{{data.name}}</a>
+        </div>
+        <div class="col-3 colBorder">
+            {{data.startDate | date:'dd-MM-yyyy'}}
+        </div>
+        <div class="col-3 colBorder">
+            {{data.endDate | date:'dd-MM-yyyy'}}
+        </div>
+        <div class="col-3 colBorder">
+            <button type="button" class="btn btn-primary btn-sm" style="font-size: 0.8em;"
+                (click)="onDelete(data.name)">Delete</button>
+        </div>
+    </div>
+</div>

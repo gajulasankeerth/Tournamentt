@@ -1,0 +1,138 @@
+<div class="signUpPageBody d-flex justify-content-center " *ngIf="!alert">
+    <div class="card container">
+        <div class="row no-gutters">
+            <div class="col-md-5 card-edge-to-edge mdl-img">
+                <img src="assets/3.jpg" class="card-image mdl-img">
+            </div>
+            <div class="col-md-7 col-12 card-edge-to-edge">
+                <div class="card-body">
+                    <div class="rightcard-image">
+                        <div><img src="assets\logo.png" width="150px"></div>
+                    </div>
+                    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                        <div class=" align-items-center mb-2">
+                            <h4>Sign Up</h4>
+                            <p class="quick-tag">It's quick and easy.</p>
+                        </div>
+                        <div class="form-row row">
+                            <div class="form-group col-md-6 col-12">
+                                <label>Name</label>
+                                <input type="text" formControlName="fullName" class="form-control"
+                                    [ngClass]="{ 'is-invalid': submitted && f.fullName.errors }"
+                                    placeholder="Full Name" />
+                                    <div class="warning" *ngIf="f.fullName.errors?.required && registerForm.controls['fullName']?.touched">Full Name is required*</div>
+                                <!-- <div *ngIf="submitted && f.fullName.errors" class="invalid-feedback">
+                                    <div *ngIf="f.fullName.errors.required">Full Name is required</div>
+                                </div> -->
+                            </div>
+                            <div class="form-group col-md-6 col-12">
+                            
+                                <label>Mobile Number</label>
+                                <input type="number" formControlName="mobile" class="form-control" 
+                                    [ngClass]="{ 'is-invalid': submitted && f.mobile.errors }"
+                                    placeholder="Mobile Number">
+                                    <div class="warning" *ngIf="(f.mobile.value+'').length!=10 && registerForm.controls['mobile']?.dirty">Mobile Number length should be 10</div>
+                                    <div class="warning" *ngIf="f.mobile.errors?.required && registerForm.controls['mobile']?.touched">*Mobile Number is required*</div>
+                            </div>
+                        </div>
+                        <div class="form-row row">
+                            <div class="form-group col-md-6 col-12">
+                                <label>Date of Birth</label>
+                                <input type="date" formControlName="dob" class="form-control"
+                                    [ngClass]="{ 'is-invalid': submitted && f.dob.errors }" id="Test_Date"
+                                    min="{{minDate | date:'yyyy-MM-dd'}}" max="{{maxDate | date:'yyyy-MM-dd'}}" />
+                                    <div class="warning" *ngIf="f.dob.errors?.required && registerForm.controls['dob']?.touched">DOB is required*</div>
+                                    <div *ngIf="submitted && f.dob.errors" class="invalid-feedback">
+                                    <div *ngIf="f.dob.errors.required">Date of Birth is required</div>
+                                    <div *ngIf="f.dob.errors.pattern">Date of Birth must be a valid date in the
+                                        format YYYY-MM-DD
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6 col-12">
+                                <label>User Name</label>
+                                <input type="text" formControlName="userName" class="form-control"
+                                    [ngClass]="{ 'is-invalid': submitted && f.userName.errors }"
+                                    placeholder="Email Format" />
+                                    <div class="warning" *ngIf="f.userName.errors?.required && registerForm.controls['userName']?.touched">Email is required*</div>
+                                <div *ngIf="submitted && f.userName.errors" class="invalid-feedback">
+                                    
+                                    <div *ngIf="f.userName.errors.email">User Name must be a valid email address
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row row">
+                            <div class="form-group col-md-6 col-12">
+                                <label>Password</label>
+                                <input type="password" formControlName="password" class="form-control"
+                                    [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                                    <div class="warning" *ngIf="f.password.errors?.required && registerForm.controls['password']?.touched">Password is required*</div>
+                                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                    <div *ngIf="f.password.errors.required">Password is required</div>
+                                    <div *ngIf="f.password.errors.minlength">
+                                        Password must be at least 6 characters
+                                    </div>
+                                    <div *ngIf="f.password.errors.maxlength">
+                                        Username must not exceed 40 characters
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-6 col-12">
+                                <label>Confirm Password</label>
+                                <input type="password" formControlName="confirmPassword" class="form-control"
+                                    [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" />
+                                    <div class="warning" *ngIf="f.confirmPassword.errors?.required && registerForm.controls['confirmPassword']?.touched">Confirm Password is required*</div>
+                                <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+                                    <div *ngIf="f.confirmPassword.errors.required">
+                                        Confirm Password is required
+                                    </div>
+                                </div>
+                                <div class="warning"
+                                    *ngIf="f.confirmPassword.value!=f.password.value && registerForm.controls['confirmPassword']?.dirty">
+                                    Password does not match
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="text-center">
+                            <button class="btn btn-primary mr-1 login-btn" [disabled]="registerForm.invalid">Sign Up</button>
+                            <a routerLink="/login" class="btn btn-link">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="card" *ngIf="alert">
+    <div class="card-body">
+        <h5 class="card-title">Hello {{f.fullName.value}} !!</h5>
+        <div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+
+            <strong>You Have Registered successfully</strong>
+
+        </div>
+        <div class="text-center">
+            <strong>Redirecting to Login ...</strong>
+            <div class="spinner-border text-primary" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+            <div class="spinner-border text-warning" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+            <div class="spinner-border text-dark" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+            <div class="spinner-border text-success" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+            <div class="spinner-border text-danger" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+    </div>
+    </div>
+</div>
+
