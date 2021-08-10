@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "node server.js",
-    "build": "ng build",
+    "build": "ng build --prod",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "heroku-postbuild": "ng build"
@@ -28,7 +28,6 @@
     "path": "^0.12.7",
     "rxjs": "~6.6.0",
     "tslib": "^2.2.0",
-    "typescript": "~4.3.2",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
@@ -46,8 +45,4 @@
     "karma-jasmine-html-reporter": "^1.5.0",
     "typescript": "~4.3.2"
   },
-  "engines": {
-    "node": "14.17.4",
-    "npm": "6.14.14"
-  }
 }
